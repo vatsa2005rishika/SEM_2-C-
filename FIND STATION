@@ -1,0 +1,44 @@
+//A TRAIN IS MOVING FROM SEALDAH TO BARASAT,ONE OF THE PASSENGER WANTS TO GO TO MADHAYAMGARAM STATION. AFTER CERTAIN TIME, TRAIN STOPS AT A STATION. WRITE A PROGRAM IN C TO CHECK IF THE PASSENGER HAS REACHED THE STATION.
+
+
+#include<stdio.h>
+int main()
+{
+  int arr[11]={1,2,3,4,5,6,7,8,9,10,11};
+  int element,count=0;
+  printf("which number station has the train arrived:");
+  scanf("%d",&element);
+  int target=9;
+  int start=0;
+  int stop=sizeof(arr)/sizeof(int);
+  while(1)
+  {
+    int mid=(start+stop)/2;
+    if(arr[mid]==element)
+    {
+      if(element==target)
+      {
+          printf("you have reached MADHYAMGRAM");
+          break;
+      }
+      else if (element<target)
+      {
+          printf("you have not reached yet");
+          break;
+      }
+      else
+      {
+          printf("you overslept");
+          break;
+      }
+    }
+    else if(arr[mid]>element)
+    {
+        stop=mid-1;
+    }
+    else
+    {
+        start=mid+1;
+    }
+  }
+}
