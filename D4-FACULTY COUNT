@@ -1,0 +1,39 @@
+//Write a code in c++ to count the number of faculties in a department//
+#include<iostream>
+using namespace std;
+static int count=0;
+class faculty{
+    public:
+    void getDetails()
+    {
+        string n;
+        int id;
+        cout<<"Enter faculty name:";
+        cin>>n;
+        cout<<"Enter faculty id:";
+        cin>>id;
+        count++;
+    }
+    void displayCount()
+    {
+        cout<<"Total faculties are:"<<count<<"\n";
+    }
+};
+int main()
+{
+    faculty x;
+    int a;
+    while(1)
+    {
+        cout<<"1:Enter new faculty details\n2:Current number of faculties\n3:quit\n";
+        cout<<"Enter choice\n";
+         cin>>a;
+        switch(a)
+        {
+            case 1: x.getDetails();break;
+            case 2: x.displayCount();break;
+            case 3: return 0;
+            default:cout<<"Invalid input,try again\n";
+        }
+    }
+}
