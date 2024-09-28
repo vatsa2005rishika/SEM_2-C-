@@ -1,0 +1,17 @@
+// calculate the simple interest where the rate of the interest has a default value of 15%
+
+#include <iostream>
+using namespace std;
+
+double simpleinterest(double principal,double time,double rate=15.0)
+{
+    return principal*time*rate/100;
+}
+int main() {
+    double principal,time;
+    cout<<"enter the principal amount:";
+    cin>>principal;
+    cout<<"enter the time period in years:";
+    cin>>time;
+    cout<<"SIMPLE INTEREST="<<simpleinterest(principal,time)<<endl;
+}
