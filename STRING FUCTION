@@ -1,0 +1,58 @@
+//Write a program which will copy, concatenate, compare two strings without using <string.h>
+#include<stdio.h>
+int main()
+{
+    int i,j,l1=0,l2=0,count=0;
+    char arr[50],brr[50],copy[50],conc[50];
+    printf("Enter 1st string:");
+    gets(arr);
+    printf("Enter 2nd string:");
+    gets(brr);
+    for(i=0;arr[i]!='\0';i++)
+    {
+        l1++;
+    }
+    for(i=0;brr[i]!='\0';i++)
+    {
+        l2++;
+    }
+    for( i=0;i<l1;i++)
+    {
+        copy[i]=arr[i];
+    }
+    copy[i]=arr[i];
+    printf("1st string is copied:%s\n",copy);
+    for(i=0;i<l1;i++)
+    {
+        conc[i]=arr[i];
+    }
+    for(j=0;j<l2;j++)
+    {
+        conc[i]=brr[j];
+        i++;
+    }
+    conc[i]='\0';
+    printf("Concatenated string:%s\n",conc);
+    if(l1==l2)
+    {
+        for(i=0;i<l1;i++)
+        {
+            if(arr[i]==brr[i])
+            {
+                count++;
+            }
+        }
+        if(count==l1)
+        {
+            printf("After comparing both the strings are same");
+        }
+        else
+        {
+            printf("After comparing both the strings are not the same");
+        }
+    }
+    else
+    {
+        printf("After comparing both the strings are of different size");
+    }
+}
