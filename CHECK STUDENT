@@ -1,0 +1,41 @@
+//In a class a teacher searches for a particular roll number, write a program to see if that student is present or not//
+#include<stdio.h>
+int main()
+{
+    int start,stop,stu,count=0;
+    printf("Enter the startig roll of the class:");
+    scanf("%d",&start);
+    printf("Enter the last roll of the class:");
+    scanf("%d",&stop);
+    int size=stop-start+1;
+    int arr[size];
+    for(int i=0;i<size;i++)
+    {
+        arr[i]=start+i;
+    }
+    printf("Enter the roll number of the student you want to find");
+    scanf("%d",&stu);
+    int low = 0;
+    int high = size - 1;
+    int mid;
+    while (low <= high) {
+        mid = (low + high) / 2;
+        
+        if (arr[mid] == stu) {
+            printf("Student is present\n");
+            count = 1;
+            break;
+        } 
+        else if (arr[mid] > stu) {
+            high = mid - 1;
+        } 
+        else {
+            low = mid + 1;
+        }
+    }
+    if (count == 0) {
+        printf("Student is absent\n");
+    }
+    
+    return 0;
+}
