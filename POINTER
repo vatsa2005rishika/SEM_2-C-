@@ -1,0 +1,20 @@
+//WRITE A C PROGRAM TO ACCESS THE ARRAY ELEMENTS USING POINTER
+#include<stdio.h>
+int main()
+{
+    int index;
+    int arr[5]={10,20,30,40,50};
+    int *ptr;
+    int i;
+    ptr=&arr[0];
+    printf("enter the index of the element you want to access:");
+    scanf("%d",&index);
+    if(index>=0 && index<5)
+    {
+        printf("index %d element :%d\n",index,*(ptr+index));
+    }
+    else
+    {
+        printf("invalid index!");
+    }
+}
