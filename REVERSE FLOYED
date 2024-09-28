@@ -1,0 +1,19 @@
+//WRITE A PROGRAM TO IMPLEMENT REVERSE FLOYED-TRIANGLE.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, number = 1;
+    cout << "Enter the number of rows: ";
+    cin >> rows;
+    int total_numbers = (rows * (rows + 1)) / 2;
+
+    for (int i = rows; i >= 1; --i) {
+        for (int j = 1; j <= i; ++j) {
+            cout << total_numbers-- << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
