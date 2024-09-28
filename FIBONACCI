@@ -1,0 +1,19 @@
+//Write a program in c to implement fibonacci series using recursion//
+#include<stdio.h>
+void fib(int a,int b,int n)
+{
+    if(n>0)
+    {
+        int c=a+b;
+        printf("%d",c);
+        fib(b,c,--n);
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter the range:");
+    scanf("%d",&n);
+    printf("01");
+    fib(0,1,n-2);
+}
