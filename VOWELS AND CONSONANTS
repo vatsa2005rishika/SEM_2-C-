@@ -1,0 +1,36 @@
+//WRITE A PROGRAM TO COUNT NUMBER OF VOWELS AND CONSONANTS USING SWITCH CASE IN A STRING
+#include<stdio.h>
+
+int main() {
+    char string[50];
+    int cv = 0, cc = 0, i = 0;
+
+    printf("Enter the string:\n");
+    gets(string);  
+
+    for (i = 0; string[i] != '\0'; i++) {
+        switch (string[i]) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                cv++;
+                break;
+            default:
+                if ((string[i] >= 'a' && string[i] <= 'z') || (string[i] >= 'A' && string[i] <= 'Z'))
+                    cc++;
+                break;
+        }
+    }
+
+    printf("Number of vowels: %d\n", cv);
+    printf("Number of consonants: %d\n", cc);
+
+    return 0;
+}
