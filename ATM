@@ -1,0 +1,85 @@
+//WRITE A C++ PROGRAM TO IMPLEMENT ATM MANAGEMENT SYSTEM
+#include<iostream>
+using namespace std;
+
+class atm {
+private:
+    long long int AccNo = 912345678912;
+    int balance = 50000;
+    int pin = 1234;
+
+    void withdraw() {
+        int wtdrw;
+        cout << "Enter the amount you want to withdraw: ";
+        cin >> wtdrw;
+        if (wtdrw > balance) {
+            cout << "Not sufficient balance." << endl;
+        } else {
+            cout << "Transaction successful." << endl;
+            balance = balance - wtdrw;
+            cout << "Remaining balance = " << balance << endl;
+            if (balance < 10000) {
+                cout << "Running low on balance." << endl;
+            }
+        }
+    }
+
+    void blnc() {
+        cout << "Current balance = " << balance << endl;
+    }
+
+    void transfer() {
+        int ac, am;
+        cout << "Enter the account you want to transfer money to: ";
+        cin >> ac;
+        cout << "Enter the amount to be transferred: ";
+        cin >> am;
+        if (am > balance) {
+            cout << "Insufficient balance." << endl;
+        } else {
+            balance -= am;
+            cout << "Remaining balance: " << balance << endl;
+            if (balance < 10000) {
+                cout << "Running low on balance." << endl;
+            }
+        }
+    }
+
+public:
+    void pinno() {
+        int enteredpin, ch;
+        cout << "Enter your ATM pin number: ";
+        cin >> enteredpin;
+        if (enteredpin == pin) {
+            while (true) {
+                cout << "Enter choice\n1: WITHDRAWAL\n2: BALANCE ENQUIRY\n3: TRANSFER\n4: EXIT\n";
+                cin >> ch;
+                switch (ch) {
+                    case 1:
+                        withdraw();
+                        break;
+                    case 2:
+                        blnc(); // Corrected function name
+                        break;
+                    case 3:
+                        transfer();
+                        break;
+                    case 4:
+                        cout << "Exiting...\n";
+                        return;
+                    default:
+                        cout << "Invalid input." << endl;
+                        break;
+                }
+            }
+        } else {
+            cout << "Invalid pin." << endl;
+        }
+    }
+};
+
+int main() {
+    atm x;
+    x.pinno();
+    return 0;
+}
