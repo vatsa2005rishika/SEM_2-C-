@@ -1,0 +1,82 @@
+//WRITE A PROGRAM IN C++ TO CALCULATE THE AVEREAGE OF 10 STUDENTS 5 SUBJECT MARKS FROM TWO DIFFERENT SECTION.
+#include<iostream>
+using namespace std;
+
+class secB; 
+
+class secA {
+    int a[5][5]; 
+public:
+    void getmarks() {
+        cout << "SECTION A" << endl;
+        for (int i = 0; i < 5; i++) {
+            cout << "Enter marks for Maths, Computer, DSA, English & Biology for student " << i + 1 << ": ";
+            for (int j = 0; j < 5; j++) {
+                cin >> a[i][j];
+            }
+        }
+    }
+
+    friend void avg(secA, secB); 
+};
+
+class secB {
+    int a[5][5]; 
+public:
+    void getmarks() {
+        cout << "SECTION B" << endl;
+        for (int i = 0; i < 5; i++) {
+            cout << "Enter marks for Maths, Computer, DSA, English & Biology for student " << i + 1 << ": ";
+            for (int j = 0; j < 5; j++) {
+                cin >> a[i][j];
+            }
+        }
+    }
+
+    friend void avg(secA, secB); 
+};
+
+void avg(secA x, secB y) {
+    int sumA[5] = {0}; 
+    int sumB[5] = {0}; 
+    int avgA[5], avgB[5]; 
+    int finalAvg[5]; 
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            sumA[j] += x.a[i][j]; 
+        }
+    }
+    for (int j = 0; j < 5; j++) {
+        avgA[j] = sumA[j] / 5; 
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            sumB[j] += y.a[i][j]; 
+        }
+    }
+    for (int j = 0; j < 5; j++) {
+        avgB[j] = sumB[j] / 5; 
+    }
+
+    for (int j = 0; j < 5; j++) {
+        finalAvg[j] = (avgA[j] + avgB[j]) / 2;
+    }
+
+    cout << "FINAL AVERAGE MARKS OF BOTH SECTIONS ARE: " << endl;
+    cout << "Maths   Computer   DSA   English   Biology" << endl;
+    for (int j = 0; j < 5; j++) {
+        cout << finalAvg[j] << "\t";
+    }
+    cout << endl;
+}
+
+int main() {
+    secA x;
+    secB y;
+    x.getmarks();
+    y.getmarks();
+    avg(x, y);
+    return 0;
+}
