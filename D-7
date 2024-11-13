@@ -1,0 +1,58 @@
+//Write a c++ program to implement the constructor,copy constructor,default constructor, parameterised constructor, destructor,constructor with default arguments in one program.//
+#include <iostream>
+using namespace std;
+
+class MyClass {
+private:
+    int x;
+    int y;
+
+public:
+    MyClass() {
+        x = 0;
+        y = 0;
+        cout << "Default Constructor called!" << endl;
+    }
+
+    MyClass(int a, int b) {
+        x = a;
+        y = b;
+        cout << "Parameterized Constructor called!" << endl;
+    }
+
+    MyClass(int a) {
+        x = a;
+        y = 10; 
+        cout << "Constructor with Default Arguments called!" << endl;
+    }
+
+    MyClass(const MyClass &obj) {
+        x = obj.x;
+        y = obj.y;
+        cout << "Copy Constructor called!" << endl;
+    }
+
+    ~MyClass() {
+        cout << "Destructor called!" << endl;
+    }
+
+    void display() {
+        cout << "x: " << x << ", y: " << y << endl;
+    }
+};
+
+int main() {
+    MyClass obj1;
+    obj1.display();
+
+    MyClass obj2(5, 10);
+    obj2.display();
+
+    MyClass obj3(20);
+    obj3.display();
+
+    MyClass obj4 = obj2;
+    obj4.display();
+
+    return 0;
+}
